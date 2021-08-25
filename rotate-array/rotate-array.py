@@ -3,7 +3,12 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        for i in range(k):
-            lastEle = nums.pop()
-            nums[0:0] = [lastEle]
-            
+        def reverse(nums,ptr1,ptr2):
+            while(ptr1 < ptr2):
+                nums[ptr1],nums[ptr2] = nums[ptr2],nums[ptr1]
+                ptr1+=1
+                ptr2-=1
+        reverse(nums,0,len(nums)-1)
+        ptr2=k%len(nums) -1
+        reverse(nums,0,ptr2)
+        reverse(nums,ptr2+1,len(nums)-1)
