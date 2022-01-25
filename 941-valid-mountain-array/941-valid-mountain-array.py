@@ -4,8 +4,6 @@ class Solution:
         for i in range(len(arr)-1):
             if arr[i] < arr[i+1]:
                 count+=1
-            elif(arr[i] == arr[i+1]):
-                return False
         if count == len(arr)-1 or count ==0:
             return False
         else:
