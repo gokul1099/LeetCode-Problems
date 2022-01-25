@@ -1,11 +1,11 @@
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         largest=0
-        if(len(matrix) ==1 and len(matrix[0])==1):
-            if matrix[0][0]=="1":
-                return 1
-            else:
-                return 0
+        # if(len(matrix) ==1 and len(matrix[0])==1):
+        #     if matrix[0][0]=="1":
+        #         return 1
+        #     else:
+        #         return 0
         dp=[[0 for i in range (len(matrix[0])+1)]for j in range(len(matrix)+1)]
         for i in range(1,len(matrix)+1):
             for j in range(1,len(matrix[0])+1):
