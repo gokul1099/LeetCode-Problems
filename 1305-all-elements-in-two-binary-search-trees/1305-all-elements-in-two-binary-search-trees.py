@@ -13,7 +13,7 @@ class Solution:
             val.append(root.val)
             helper(root.right,val)
             helper(root.left,val)
-            return
+            
         helper(root1,ans)
         helper(root2,ans)
         return sorted(ans)
