@@ -3,11 +3,11 @@ class Solution:
         stack=[]
         pairs = {"{":"}","[":"]","(":")"}
         opening = set(['[','{','('])
-        for i in range(len(s)):
-            if s[i] in opening:
-                stack.append(s[i])
+        for i in s:
+            if i in opening:
+                stack.append(i)
                 continue
-            elif(stack!=[] and s[i] == pairs[stack[-1]]):
+            elif(stack!=[] and i == pairs[stack[-1]]):
                 stack.pop()
             else:
                 return False
