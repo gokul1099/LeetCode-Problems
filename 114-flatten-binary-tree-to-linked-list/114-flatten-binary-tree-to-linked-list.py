@@ -5,20 +5,22 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
-        self.prev = None
-        
+  
     def flatten(self, root: Optional[TreeNode]) -> None:
-        self.recur(root)
-    def recur(self,root):
-        if not root:
-            return
-        self.recur(root.right)
-        self.recur(root.left)
-        root.right = self.prev
-        root.left = None
-        self.prev = root
-        
+        stack = []
+        stack.append(root)
+        while(stack):
+            curr = stack.pop()
+            if(not curr):
+                continue
+            if(curr.right):
+                stack.append(curr.right)
+            if(curr.left):
+                stack.append(curr.left)
+            if(stack):
+                curr.right = stack[-1]
+            curr.left = None    
+    
 
         
         
