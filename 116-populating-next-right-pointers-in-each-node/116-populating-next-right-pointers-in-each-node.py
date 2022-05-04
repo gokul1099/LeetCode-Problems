@@ -10,15 +10,16 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        stack = [root]
-        while(stack):
-            curr = stack.pop()
-            if(curr and curr.right and curr.left):
-                curr.left.next = curr.right
-                if(curr.next):
-                    curr.right.next = curr.next.left
-            if curr and curr.left: stack.append(curr.left)
-            if curr and curr.right: stack.append(curr.right)
-        return root    
+        def recur(root):
+            if(not root):
+                return
+            if(root.left and root.right):
+                root.left.next = root.right
+                if(root.next):
+                    root.right.next = root.next.left
+                recur(root.right)
+                recur(root.left)
+        recur(root)   
+        return root
             
         
