@@ -10,16 +10,17 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        def recur(root):
-            if(not root):
+        def recur(left,right):
+            if not left:
                 return
-            if(root.left and root.right):
-                root.left.next = root.right
-                if(root.next):
-                    root.right.next = root.next.left
-                recur(root.right)
-                recur(root.left)
-        recur(root)   
+            left.next = right
+            recur(left.left,left.right)
+            recur(left.right,right.left)
+            recur(right.left,right.right)
+        if(not root):
+            return root
+        recur(root.left,root.right)
         return root
+        
             
         
